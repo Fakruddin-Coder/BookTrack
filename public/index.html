@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16834a">
+  <title>BookTrack | Personal Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="BookTrack home">
+      <span class="brand-icon" aria-hidden="true">▤</span>
+      <span>Book<span class="brand-green">Track</span></span>
+    </a>
+    <span class="top-note"><span class="live-dot"></span> Your personal reading space</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR LIBRARY, IN ONE PLACE</p>
+        <h1>Every book has a <span>story.</span></h1>
+        <p class="hero-copy">Keep track of what you're reading, what you've finished, and what's next on your list.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="book book-one"></div>
+        <div class="book book-two"></div>
+        <div class="book book-three"></div>
+        <div class="leaf">✦</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Reading statistics">
+      <article class="stat-card">
+        <span class="stat-icon">▤</span>
+        <div><p>Total books</p><strong id="totalCount">0</strong></div>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon pale">◷</span>
+        <div><p>Currently reading</p><strong id="readingCount">0</strong></div>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon light">✓</span>
+        <div><p>Completed</p><strong id="completedCount">0</strong></div>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BOOKSHELF</p>
+          <h2>Your books</h2>
+        </div>
+        <button id="showFormButton" class="primary-button" type="button"><span>＋</span> Add a book</button>
+      </div>
+
+      <form id="bookForm" class="form-panel hidden">
+        <div class="form-heading">
+          <div><p class="eyebrow">GROW YOUR LIBRARY</p><h3 id="formTitle">Add a new book</h3></div>
+          <button id="closeFormButton" class="icon-button" type="button" aria-label="Close form">×</button>
+        </div>
+        <input type="hidden" id="bookId">
+        <div class="form-grid">
+          <label>Book title <span>*</span><input id="title" name="title" required maxlength="120" placeholder="e.g. The Alchemist"></label>
+          <label>Author <span>*</span><input id="author" name="author" required maxlength="100" placeholder="e.g. Paulo Coelho"></label>
+          <label>Genre
+            <select id="genre" name="genre">
+              <option>Fiction</option><option>Non-fiction</option><option>Fantasy</option>
+              <option>Mystery</option><option>Science</option><option>Technology</option>
+              <option>Biography</option><option>Self-help</option><option>Romance</option><option>Other</option>
+            </select>
+          </label>
+          <label>Reading status
+            <select id="status" name="status">
+              <option>Want to Read</option><option>Reading</option><option>Completed</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button id="cancelButton" class="secondary-button" type="button">Cancel</button>
+          <button id="saveButton" class="primary-button" type="submit">Save book</button>
+        </div>
+      </form>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search by title or author..." autocomplete="off">
+        </label>
+        <label class="filter-box">
+          <span class="sr-only">Filter by status</span>
+          <select id="statusFilter">
+            <option value="">All statuses</option>
+            <option>Want to Read</option><option>Reading</option><option>Completed</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="message" class="message hidden" role="status"></div>
+      <div id="bookGrid" class="book-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">▤</div>
+        <h3>Your bookshelf is waiting</h3>
+        <p>Add your first book to start tracking your reading journey.</p>
+        <button id="emptyAddButton" class="primary-button" type="button">＋ Add your first book</button>
+      </div>
+    </section>
+
+    <footer>
+      <span class="footer-mark">▤ BookTrack</span>
+      <span>Made for readers, one page at a time.</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

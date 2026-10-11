@@ -189,7 +189,7 @@ If you prefer testing with a local MongoDB instance:
 
 ## 🔐 Environment Variables
 
-Environment variables are managed using `dotenv`. A template file [`.env.example`](file:///.env.example) is included in the project.
+Environment variables are managed using `dotenv`. Create a `.env` file in the project root to store your local configuration.
 
 ### Configuration Reference
 
@@ -199,10 +199,7 @@ Environment variables are managed using `dotenv`. A template file [`.env.example
 | `PORT` | No | `5000` | Port for the Express HTTP server | `5000` (Render automatically assigns `10000`) |
 
 ### Setting Up Your `.env` File
-Create a `.env` file in the project root:
-```bash
-cp .env.example .env
-```
+Create a `.env` file in the project root with your configuration:
 Open `.env` and set your `MONGODB_URI`:
 ```env
 PORT=5000
@@ -234,9 +231,10 @@ MONGODB_URI=mongodb+srv://yourUser:yourPassword@cluster0.xxxx.mongodb.net/booktr
    ```
 
 3. **Configure Environment Variables**:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your MONGODB_URI
+   Create a `.env` file with your `MONGODB_URI` and `PORT`:
+   ```env
+   PORT=5000
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxxx.mongodb.net/booktrack?retryWrites=true&w=majority
    ```
 
 4. **Start the application**:
@@ -353,7 +351,6 @@ A pre-configured [`render.yaml`](file:///render.yaml) is included in this reposi
 
 ```text
 BookTrack/
-├── .env.example        # Environment variable template with setup notes
 ├── .gitignore          # Excludes node_modules, secrets (.env), and logs
 ├── models/
 │   └── Book.js         # Mongoose schema, validation, and text indexes

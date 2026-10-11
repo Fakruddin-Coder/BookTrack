@@ -123,7 +123,7 @@ process.on("SIGTERM", async () => {
 async function startServer() {
   if (!MONGODB_URI) {
     console.error("❌ Error: Missing MONGODB_URI environment variable.");
-    console.error("Please copy .env.example to .env and configure your MongoDB connection string.");
+    console.error("Please configure your MONGODB_URI in a .env file or environment variables.");
     process.exit(1);
   }
 

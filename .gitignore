@@ -10,8 +10,6 @@ web_modules/
 .env.test.local
 .env.production.local
 *.env
-# Ensure environment template is tracked
-!.env.example
 
 # Runtime and debug logs
 logs/
